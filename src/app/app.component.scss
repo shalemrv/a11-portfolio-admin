@@ -1,0 +1,13 @@
+.mid-body {
+	display: grid;
+	grid-template-columns: 12.5rem auto;
+	height: calc(100vh - 3.75rem);
+	overflow: hidden;
+
+	*:first-child {
+		background-color: rgb(0, 0, 0, 0.2);
+	}
+	*:last-child {
+		overflow-y: auto;
+	}
+}

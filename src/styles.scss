@@ -1,1 +1,23 @@
 /* You can add global styles to this file, and also import other style files */
+
+* {
+	padding: 0;
+	margin: 0;
+	box-sizing: border-box;
+	text-decoration: none;
+	list-style-type: none;
+}
+
+html,
+body {
+	height: 100%;
+	font-size: 100%;
+	background-color: #303030;
+	background: #303030;
+	overflow: hidden;
+	color: white;
+}
+
+body {
+	font-family: Roboto, "Helvetica Neue", sans-serif;
+}

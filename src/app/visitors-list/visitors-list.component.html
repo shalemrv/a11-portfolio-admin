@@ -1,0 +1,38 @@
+
+<div class="tableContainer">
+	<h3 class="tableHeader">
+		Visitors List ({{visitorsListCount}})
+	</h3>
+	<div class="mat-elevation-z8">
+		<table mat-table [dataSource]="dataSource" matSort>
+			<!-- Serial Number Column -->
+			<ng-container matColumnDef="slNo">
+				<th mat-header-cell *matHeaderCellDef mat-sort-header> No. </th>
+				<td mat-cell *matCellDef="let element"> {{element.slNo}} </td>
+			</ng-container>
+		
+			<!-- Time Column -->
+			<ng-container matColumnDef="entryTime">
+				<th mat-header-cell *matHeaderCellDef mat-sort-header> Time </th>
+				<td mat-cell *matCellDef="let element"> {{element.entryTime}} </td>
+			</ng-container>
+		
+			<!-- Weight Column -->
+			<!--<ng-container matColumnDef="ipAddress">
+				<th mat-header-cell *matHeaderCellDef mat-sort-header> IP </th>
+				<td mat-cell *matCellDef="let element"> {{element.ipAddress}} </td>
+			</ng-container>-->
+		
+			<!-- Symbol Column -->
+			<ng-container matColumnDef="fullAddress">
+				<th mat-header-cell *matHeaderCellDef mat-sort-header> Address </th>
+				<td mat-cell *matCellDef="let element"> {{element.fullAddress}} </td>
+			</ng-container>
+		
+			<tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+			<tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+		</table>
+		
+		<mat-paginator [pageSizeOptions]="[8]" showFirstLastButtons></mat-paginator>
+	</div>
+</div>
