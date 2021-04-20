@@ -22,6 +22,7 @@ export class VisitorsListComponent implements AfterViewInit {
 
 	ngAfterViewInit() {
 		this.dataSource.paginator = this.paginator;
+		this.dataSource.sort = this.sort;
 		this.visitorsListCount = ARRAY_VISITORS.length;
 	}
 }
