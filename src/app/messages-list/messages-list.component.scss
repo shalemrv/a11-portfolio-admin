@@ -1,0 +1,23 @@
+.tableContainer {
+	padding: 1.5rem 0 0 1.5rem;
+
+	.tableHeader {
+		background-color: rgba(0, 0, 0, 0.25);
+		padding: 0.5rem 2rem 0.5rem 1.5rem;
+		border-left: 0.4rem solid green;
+		border-radius: 0 5px 5px 0;
+	}
+
+	table {
+		width: 100%;
+	}
+
+	th.mat-sort-header-sorted {
+		color: black;
+		text-shadow: 0 0 5px white;
+	}
+
+	td {
+		padding: 0.25rem 1.5rem;
+	}
+}

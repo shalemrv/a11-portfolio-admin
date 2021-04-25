@@ -1,1 +1,20 @@
-<h2>messages works!</h2>
+<div class="messagesMainContainer">
+	<div>
+		<app-messages-list
+			[messagesList]="allMessages"
+			type="Unread"
+		></app-messages-list>
+	</div>
+	<div>
+		<app-messages-list
+			[messagesList]="allMessages"
+			type="Read"
+		></app-messages-list>
+	</div>
+	<!--<div>
+		<app-unread-messages></app-unread-messages>
+	</div>
+	<div>
+		<app-read-messages></app-read-messages>
+	</div>-->
+</div>

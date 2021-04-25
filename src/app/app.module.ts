@@ -22,6 +22,7 @@ import { MessagesComponent } from './messages/messages.component';
 import { VisitorsListComponent } from './visitors-list/visitors-list.component';
 import { VisitorsChartComponent } from './visitors-chart/visitors-chart.component';
 import { VisitorsComponent } from './visitors/visitors.component';
+import { MessagesListComponent } from './messages-list/messages-list.component';
 
 @NgModule({
 	declarations: [
@@ -32,6 +33,7 @@ import { VisitorsComponent } from './visitors/visitors.component';
 		MessagesComponent,
 		VisitorsListComponent,
 		VisitorsChartComponent,
+		MessagesListComponent,
 	],
 	imports: [
 		BrowserModule,
