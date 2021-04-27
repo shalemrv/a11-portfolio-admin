@@ -1,17 +1,22 @@
-import { Component, AfterViewInit, OnInit } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+
+import { InboxService } from './../services/inbox/inbox.service';
 
 import { Message } from './../../models/message.model';
 
 @Component({
-	selector: 'app-messages',
-	templateUrl: './messages.component.html',
-	styleUrls: ['./messages.component.scss'],
+	selector: 'app-inbox',
+	templateUrl: './inbox.component.html',
+	styleUrls: ['./inbox.component.scss'],
 })
-export class MessagesComponent implements OnInit {
+export class InboxComponent implements OnInit {
 	allMessages!: Array<Message>;
 
-	constructor() {
+	constructor(private inboxService: InboxService) {
 		this.allMessages = ARRAY_MESSAGES;
+		let something = inboxService.getAllMessages();
+		console.log('something');
+		console.log(something);
 	}
 
 	ngOnInit() {}

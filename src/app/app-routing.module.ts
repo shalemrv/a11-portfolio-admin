@@ -2,7 +2,7 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 
 import { VisitorsComponent } from './visitors/visitors.component';
-import { MessagesComponent } from './messages/messages.component';
+import { InboxComponent } from './inbox/inbox.component';
 
 const routes: Routes = [
 	{
@@ -15,7 +15,7 @@ const routes: Routes = [
 	},
 	{
 		path: 'messages',
-		component: MessagesComponent,
+		component: InboxComponent,
 	},
 ];
 
