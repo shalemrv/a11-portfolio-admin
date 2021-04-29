@@ -1,0 +1,27 @@
+.formContainer {
+	margin: 5rem;
+	padding: 1rem 2rem;
+	background-color: rgba(0, 0, 0, 0.2);
+	border-radius: 5px;
+	overflow: hidden;
+	position: relative;
+
+	.usernameContainer {
+		padding-top: 1rem;
+	}
+	.passwordContainer {
+		padding-bottom: 1rem;
+	}
+}
+
+.formContainer::before {
+	position: absolute;
+	top: -1.5rem;
+	left: -50%;
+	content: "";
+	background-color: rgba(255, 255, 255, 0.1);
+	width: 200%;
+	border-radius: 50%;
+	height: 5rem;
+	z-index: 0;
+}

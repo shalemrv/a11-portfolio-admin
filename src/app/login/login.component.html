@@ -1,1 +1,36 @@
-<p>login works!</p>
+<div class="flex ai-ce jc-ce">
+	<div class="formContainer">
+		<div>
+			<h2>Login</h2>
+		</div>
+		<div class="usernameContainer">
+			<mat-form-field appearance="outline">
+				<mat-label>Username</mat-label>
+				<input matInput placeholder="Username" #username />
+				<mat-icon matSuffix>account_circle</mat-icon>
+			</mat-form-field>
+		</div>
+		<div class="passwordContainer">
+			<mat-form-field appearance="outline">
+				<mat-label>Password</mat-label>
+				<input
+					matInput
+					type="password"
+					placeholder="Password"
+					#password
+				/>
+				<mat-icon matSuffix>group_work</mat-icon>
+			</mat-form-field>
+		</div>
+		<div class="flex ai-ce jc-sa">
+			<button mat-raised-button color="warn">Cancel</button>
+			<button
+				mat-raised-button
+				color="primary"
+				(click)="login(username.value, password.value)"
+			>
+				Sign In
+			</button>
+		</div>
+	</div>
+</div>

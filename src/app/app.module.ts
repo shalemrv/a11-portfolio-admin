@@ -12,6 +12,9 @@ import { MatBadgeModule } from "@angular/material/badge";
 import { MatTableModule } from "@angular/material/table";
 import { MatPaginatorModule } from "@angular/material/paginator";
 import { MatSortModule } from "@angular/material/sort";
+import { MatFormFieldModule } from "@angular/material/form-field";
+import { MatInputModule } from "@angular/material/input";
+import { MatButtonModule } from "@angular/material/button";
 
 /** NGX IMPORTS */
 import { NgxChartsModule } from "@swimlane/ngx-charts";
@@ -29,7 +32,7 @@ import { VisitorsChartComponent } from "./visitors-chart/visitors-chart.componen
 import { VisitorsComponent } from "./visitors/visitors.component";
 import { InboxComponent } from "./inbox/inbox.component";
 import { MessagesListComponent } from "./messages-list/messages-list.component";
-import { LoginComponent } from './login/login.component';
+import { LoginComponent } from "./login/login.component";
 
 @NgModule({
 	declarations: [
@@ -41,7 +44,7 @@ import { LoginComponent } from './login/login.component';
 		VisitorsChartComponent,
 		MessagesListComponent,
 		InboxComponent,
-  LoginComponent,
+		LoginComponent,
 	],
 	imports: [
 		BrowserModule,
@@ -53,6 +56,9 @@ import { LoginComponent } from './login/login.component';
 		MatTableModule,
 		MatPaginatorModule,
 		MatSortModule,
+		MatFormFieldModule,
+		MatInputModule,
+		MatButtonModule,
 		NgxChartsModule,
 		HttpClientModule,
 	],

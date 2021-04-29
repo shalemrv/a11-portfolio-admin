@@ -1,21 +1,26 @@
-import { NgModule } from '@angular/core';
-import { RouterModule, Routes } from '@angular/router';
+import { NgModule } from "@angular/core";
+import { RouterModule, Routes } from "@angular/router";
 
-import { VisitorsComponent } from './visitors/visitors.component';
-import { InboxComponent } from './inbox/inbox.component';
+import { VisitorsComponent } from "./visitors/visitors.component";
+import { InboxComponent } from "./inbox/inbox.component";
+import { LoginComponent } from "./login/login.component";
 
 const routes: Routes = [
 	{
-		path: '',
+		path: "",
 		component: VisitorsComponent,
 	},
 	{
-		path: 'visitors',
+		path: "visitors",
 		component: VisitorsComponent,
 	},
 	{
-		path: 'messages',
+		path: "messages",
 		component: InboxComponent,
+	},
+	{
+		path: "login",
+		component: LoginComponent,
 	},
 ];
 
