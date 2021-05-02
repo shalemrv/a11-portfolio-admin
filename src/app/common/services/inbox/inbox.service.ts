@@ -1,9 +1,9 @@
-import { environment } from "./../../../environments/environment.prod";
+import { environment } from "./../../../../environments/environment.prod";
 import { Injectable } from "@angular/core";
 
 import { HttpClient } from "@angular/common/http";
 
-import { Message } from "./../../../models/message.model";
+import { Message } from "./../../models/message.model";
 
 @Injectable({
 	providedIn: "root",
@@ -18,12 +18,15 @@ export class InboxService {
 	}
 
 	getAllMessages() {
-		let subscription = this.http.get(
+		return this.http.get(
 			`${environment.API_URL}/api/admin/manage.php?action=messages`
 		);
+	}
 
-		subscription.subscribe((res) => {
-			console.log(res);
-		});
+	switchReadUnread(payload: any) {
+		return this.http.post(
+			`${environment.API_URL}/api/admin/manage.php?action=messages`,
+			payload
+		);
 	}
 }

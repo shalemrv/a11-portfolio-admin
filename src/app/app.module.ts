@@ -20,7 +20,7 @@ import { MatButtonModule } from "@angular/material/button";
 import { NgxChartsModule } from "@swimlane/ngx-charts";
 
 /**APP SERVICES */
-import { InterceptorService } from "./services/interceptor/interceptor.service";
+import { InterceptorService } from "./common/services/interceptor/interceptor.service";
 
 /** APP COMPOMENTS */
 import { AppComponent } from "./app.component";
@@ -31,7 +31,6 @@ import { VisitorsListComponent } from "./visitors-list/visitors-list.component";
 import { VisitorsChartComponent } from "./visitors-chart/visitors-chart.component";
 import { VisitorsComponent } from "./visitors/visitors.component";
 import { InboxComponent } from "./inbox/inbox.component";
-import { MessagesListComponent } from "./messages-list/messages-list.component";
 import { LoginComponent } from "./login/login.component";
 
 @NgModule({
@@ -42,7 +41,6 @@ import { LoginComponent } from "./login/login.component";
 		VisitorsComponent,
 		VisitorsListComponent,
 		VisitorsChartComponent,
-		MessagesListComponent,
 		InboxComponent,
 		LoginComponent,
 	],

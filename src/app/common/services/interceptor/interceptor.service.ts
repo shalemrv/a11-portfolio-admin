@@ -1,10 +1,10 @@
-import { environment } from './../../../environments/environment.prod';
-import { Injectable } from '@angular/core';
+import { environment } from "./../../../../environments/environment.prod";
+import { Injectable } from "@angular/core";
 
-import { HttpInterceptor } from '@angular/common/http';
+import { HttpInterceptor } from "@angular/common/http";
 
 @Injectable({
-	providedIn: 'root',
+	providedIn: "root",
 })
 export class InterceptorService implements HttpInterceptor {
 	constructor() {}

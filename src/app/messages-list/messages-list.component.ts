@@ -10,7 +10,7 @@ import { MatPaginator } from "@angular/material/paginator";
 import { MatSort } from "@angular/material/sort";
 import { MatTableDataSource } from "@angular/material/table";
 
-import { Message } from "./../../models/message.model";
+import { Message } from "./../common/models/message.model";
 
 @Component({
 	selector: "app-messages-list",
@@ -30,7 +30,10 @@ export class MessagesListComponent implements AfterViewInit {
 	@ViewChild(MatSort) sort!: MatSort;
 	@ViewChild(MatPaginator) paginator!: MatPaginator;
 
-	constructor(private cd: ChangeDetectorRef) {}
+	constructor(
+		private cd: ChangeDetectorRef,
+		private InboxStore: InboxStore
+	) {}
 
 	instantiateTableDataSource() {
 		this.messagesDataSource = new MatTableDataSource<Message>(
