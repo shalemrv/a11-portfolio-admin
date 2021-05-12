@@ -2,7 +2,7 @@ import {
 	Component,
 	Input,
 	ViewChild,
-	AfterViewInit,
+	OnChanges,
 	ChangeDetectorRef,
 } from "@angular/core";
 
@@ -10,19 +10,19 @@ import { MatPaginator } from "@angular/material/paginator";
 import { MatSort } from "@angular/material/sort";
 import { MatTableDataSource } from "@angular/material/table";
 
-import { Message } from "./../../models/message.model";
+import { Message } from "./../common/models/message.model";
 
 @Component({
-	selector: "app-messages-list",
+	selector: "messages-list",
 	templateUrl: "./messages-list.component.html",
 	styleUrls: ["./messages-list.component.scss"],
 })
-export class MessagesListComponent implements AfterViewInit {
-	@Input() messagesList!: Array<Message>;
+export class MessagesListComponent implements OnChanges {
+	@Input() messagesList!: Message[];
 	@Input() type!: string;
 
 	messagesCount!: number;
-	allMessages!: Array<Message>;
+	allMessages!: Message[];
 
 	displayedColumns: string[] = ["id", "dateTime", "companyName"];
 	messagesDataSource!: MatTableDataSource<Message>;
@@ -41,7 +41,7 @@ export class MessagesListComponent implements AfterViewInit {
 		this.messagesCount = this.messagesList.length;
 	}
 
-	ngAfterViewInit() {
+	ngOnChanges() {
 		this.instantiateTableDataSource();
 		this.cd.detectChanges();
 	}
