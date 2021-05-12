@@ -1,20 +1,20 @@
+<button mat-button color="primary" (click)="reloadMessages()">Reload</button>
+
 <div class="messagesMainContainer">
 	<div>
-		<app-messages-list
-			[messagesList]="allMessages"
+		<messages-list
+			[messagesList]="unreadMessages$ | async"
 			type="Unread"
-		></app-messages-list>
+		></messages-list>
 	</div>
 	<div>
-		<app-messages-list
-			[messagesList]="allMessages"
+		<messages-list
+			[messagesList]="readMessages$ | async"
 			type="Read"
-		></app-messages-list>
+		></messages-list>
 	</div>
-	<!--<div>
-		<app-unread-messages></app-unread-messages>
-	</div>
-	<div>
-		<app-read-messages></app-read-messages>
-	</div>-->
 </div>
+<!--<h3>readMessages</h3>
+<pre>
+	{{ readMessages$ | async | json }}
+</pre>-->

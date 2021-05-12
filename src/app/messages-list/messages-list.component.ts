@@ -13,16 +13,16 @@ import { MatTableDataSource } from "@angular/material/table";
 import { Message } from "./../common/models/message.model";
 
 @Component({
-	selector: "app-messages-list",
+	selector: "messages-list",
 	templateUrl: "./messages-list.component.html",
 	styleUrls: ["./messages-list.component.scss"],
 })
 export class MessagesListComponent implements AfterViewInit {
-	@Input() messagesList!: Array<Message>;
+	@Input() messagesList!: Message[];
 	@Input() type!: string;
 
 	messagesCount!: number;
-	allMessages!: Array<Message>;
+	allMessages!: Message[];
 
 	displayedColumns: string[] = ["id", "dateTime", "companyName"];
 	messagesDataSource!: MatTableDataSource<Message>;
@@ -30,10 +30,7 @@ export class MessagesListComponent implements AfterViewInit {
 	@ViewChild(MatSort) sort!: MatSort;
 	@ViewChild(MatPaginator) paginator!: MatPaginator;
 
-	constructor(
-		private cd: ChangeDetectorRef,
-		private InboxStore: InboxStore
-	) {}
+	constructor(private cd: ChangeDetectorRef) {}
 
 	instantiateTableDataSource() {
 		this.messagesDataSource = new MatTableDataSource<Message>(

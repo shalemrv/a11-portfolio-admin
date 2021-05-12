@@ -1,7 +1,10 @@
-import { NgModule } from "@angular/core";
+import { NgModule, CUSTOM_ELEMENTS_SCHEMA } from "@angular/core";
+
 import { BrowserModule } from "@angular/platform-browser";
 import { FormsModule } from "@angular/forms";
 import { HttpClientModule, HTTP_INTERCEPTORS } from "@angular/common/http";
+
+import { InboxStore } from "./common/stores/inbox-store.service";
 
 import { AppRoutingModule } from "./app-routing.module";
 
@@ -31,6 +34,7 @@ import { VisitorsListComponent } from "./visitors-list/visitors-list.component";
 import { VisitorsChartComponent } from "./visitors-chart/visitors-chart.component";
 import { VisitorsComponent } from "./visitors/visitors.component";
 import { InboxComponent } from "./inbox/inbox.component";
+import { MessagesListComponent } from "./messages-list/messages-list.component";
 import { LoginComponent } from "./login/login.component";
 
 @NgModule({
@@ -42,10 +46,12 @@ import { LoginComponent } from "./login/login.component";
 		VisitorsListComponent,
 		VisitorsChartComponent,
 		InboxComponent,
+		MessagesListComponent,
 		LoginComponent,
 	],
 	imports: [
 		BrowserModule,
+		FormsModule,
 		AppRoutingModule,
 		BrowserAnimationsModule,
 		MatMenuModule,
@@ -61,6 +67,7 @@ import { LoginComponent } from "./login/login.component";
 		HttpClientModule,
 	],
 	providers: [
+		InboxStore,
 		{
 			provide: HTTP_INTERCEPTORS,
 			useClass: InterceptorService,
@@ -68,5 +75,6 @@ import { LoginComponent } from "./login/login.component";
 		},
 	],
 	bootstrap: [AppComponent],
+	schemas: [CUSTOM_ELEMENTS_SCHEMA],
 })
 export class AppModule {}
