@@ -2,7 +2,7 @@ import {
 	Component,
 	Input,
 	ViewChild,
-	AfterViewInit,
+	OnChanges,
 	ChangeDetectorRef,
 } from "@angular/core";
 
@@ -17,7 +17,7 @@ import { Message } from "./../common/models/message.model";
 	templateUrl: "./messages-list.component.html",
 	styleUrls: ["./messages-list.component.scss"],
 })
-export class MessagesListComponent implements AfterViewInit {
+export class MessagesListComponent implements OnChanges {
 	@Input() messagesList!: Message[];
 	@Input() type!: string;
 
@@ -41,7 +41,7 @@ export class MessagesListComponent implements AfterViewInit {
 		this.messagesCount = this.messagesList.length;
 	}
 
-	ngAfterViewInit() {
+	ngOnChanges() {
 		this.instantiateTableDataSource();
 		this.cd.detectChanges();
 	}

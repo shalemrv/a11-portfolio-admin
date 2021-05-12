@@ -31,11 +31,12 @@ export class InboxComponent implements OnInit {
 	ngOnInit() {
 		const courses$ = this.InboxStore.inbox$;
 
-		this.readMessages$ = this.InboxStore.getReadMessages();
-		this.unreadMessages$ = this.InboxStore.getUnreadMessages();
+		this.reloadMessages();
 	}
 
 	reloadMessages() {
 		this.InboxStore.getMessages();
+		this.readMessages$ = this.InboxStore.getReadMessages();
+		this.unreadMessages$ = this.InboxStore.getUnreadMessages();
 	}
 }
