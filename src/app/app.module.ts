@@ -5,6 +5,7 @@ import { FormsModule } from "@angular/forms";
 import { HttpClientModule, HTTP_INTERCEPTORS } from "@angular/common/http";
 
 import { InboxStore } from "./common/stores/inbox-store.service";
+import { VisitorStore } from "./common/stores/visitor-store.service";
 
 import { AppRoutingModule } from "./app-routing.module";
 
@@ -68,6 +69,7 @@ import { LoginComponent } from "./login/login.component";
 	],
 	providers: [
 		InboxStore,
+		VisitorStore,
 		{
 			provide: HTTP_INTERCEPTORS,
 			useClass: InterceptorService,

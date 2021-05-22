@@ -18,13 +18,13 @@ export class InboxStore {
 
 	init() {
 		console.log("Inbox Store Initialized");
-		//this.inboxSubject.next(DUMMY_MESSAGES);
 		this.getMessages();
 	}
 
 	getMessages() {
 		this.InboxService.getAllMessages().subscribe((res: any) => {
 			if (!res.complete) {
+				this.inboxSubject.next(DUMMY_MESSAGES);
 				return;
 			}
 

@@ -12,23 +12,29 @@
 			<ng-container matColumnDef="entryTime">
 				<th mat-header-cell *matHeaderCellDef mat-sort-header>Time</th>
 				<td mat-cell *matCellDef="let vDetails">
-					{{ vDetails.entryTime }}
+					{{ vDetails.entryTime | date: "mediumDate" }} <br />
+					{{ vDetails.entryTime | date: "shortTime" }}
 				</td>
 			</ng-container>
 
-			<!-- Weight Column -->
-			<!--<ng-container matColumnDef="ipAddress">
-				<th mat-header-cell *matHeaderCellDef mat-sort-header> IP </th>
-				<td mat-cell *matCellDef="let vDetails"> {{vDetails.ipAddress}} </td>
-			</ng-container>-->
+			<!-- IP Address Column -->
+			<ng-container matColumnDef="ipAddress">
+				<th mat-header-cell *matHeaderCellDef mat-sort-header>
+					IP Address
+				</th>
+				<td mat-cell *matCellDef="let vDetails">
+					{{ vDetails.ipAddress }}
+				</td>
+			</ng-container>
 
 			<!-- Symbol Column -->
-			<ng-container matColumnDef="fullAddress">
+			<ng-container matColumnDef="address">
 				<th mat-header-cell *matHeaderCellDef mat-sort-header>
 					Address
 				</th>
 				<td mat-cell *matCellDef="let vDetails">
-					{{ vDetails.fullAddress }}
+					{{ vDetails.address[0] }} <br />
+					{{ vDetails.address[1] }}
 				</td>
 			</ng-container>
 

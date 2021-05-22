@@ -1,5 +1,6 @@
 import { Component, OnInit } from "@angular/core";
 import { InboxStore } from "./common/stores/inbox-store.service";
+import { VisitorStore } from "./common/stores/visitor-store.service";
 @Component({
 	selector: "app-root",
 	templateUrl: "./app.component.html",
@@ -8,9 +9,13 @@ import { InboxStore } from "./common/stores/inbox-store.service";
 export class AppComponent {
 	title = "a11-portfolio-admin";
 
-	constructor(private InboxStore: InboxStore) {}
+	constructor(
+		private InboxStore: InboxStore,
+		private VisitorStore: VisitorStore
+	) {}
 
 	ngOnInit() {
 		this.InboxStore.init();
+		this.VisitorStore.init();
 	}
 }
