@@ -1,6 +1,12 @@
 <div class="tableContainer">
-	<h3 class="tableHeader">Visitors List ({{ visitorsListCount }})</h3>
-	<div class="mat-elevation-z8">
+	<h3 class="tableHeader">
+		Visitors List ({{ visitorsListCount }})
+		<div *ngIf="!visitorsListCount">
+			<br />
+			<h3 class="tableHeader">There are no visitors</h3>
+		</div>
+	</h3>
+	<div class="mat-elevation-z8" *ngIf="visitorsListCount">
 		<table mat-table [dataSource]="dataSource" matSort>
 			<!-- Serial Number Column -->
 			<ng-container matColumnDef="slNo">

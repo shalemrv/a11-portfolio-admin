@@ -13,17 +13,14 @@
 		<div class="passwordContainer">
 			<mat-form-field appearance="outline">
 				<mat-label>Password</mat-label>
-				<input
-					matInput
-					type="password"
-					placeholder="Password"
-					#password
-				/>
+				<input matInput type="text" placeholder="Password" #password />
 				<mat-icon matSuffix>group_work</mat-icon>
 			</mat-form-field>
 		</div>
 		<div class="flex ai-ce jc-sa">
-			<button mat-raised-button color="warn">Cancel</button>
+			<button mat-raised-button color="warn" routerLink="/visitors">
+				Cancel
+			</button>
 			<button
 				mat-raised-button
 				color="primary"

@@ -13,8 +13,8 @@ import { Message } from "./../common/models/message.model";
 	providers: [InboxStore],
 })
 export class InboxComponent implements OnInit {
-	readMessages!: Message[];
-	unreadMessages!: Message[];
+	//readMessages!: Message[];
+	//unreadMessages!: Message[];
 
 	readMessages$!: Observable<Message[]>;
 	unreadMessages$!: Observable<Message[]>;
@@ -26,17 +26,15 @@ export class InboxComponent implements OnInit {
 		//	this.unreadMessages = messagesList.filter((msg) => !msg.mRead);
 		//	this.readMessages = messagesList.filter((msg) => msg.mRead);
 		//});
+		this.readMessages$ = this.InboxStore.getReadMessages();
+		this.unreadMessages$ = this.InboxStore.getUnreadMessages();
 	}
 
 	ngOnInit() {
-		const courses$ = this.InboxStore.inbox$;
-
 		this.reloadMessages();
 	}
 
 	reloadMessages() {
 		this.InboxStore.getMessages();
-		this.readMessages$ = this.InboxStore.getReadMessages();
-		this.unreadMessages$ = this.InboxStore.getUnreadMessages();
 	}
 }

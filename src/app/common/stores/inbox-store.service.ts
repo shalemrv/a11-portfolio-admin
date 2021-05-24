@@ -1,38 +1,54 @@
 import { Injectable } from "@angular/core";
 import { BehaviorSubject, Observable } from "rxjs";
-import { filter, map, tap } from "rxjs/operators";
+import { map } from "rxjs/operators";
 
 import { InboxService } from "./../services/inbox/inbox.service";
+import { AuthStore } from "./auth-store.service";
 
 import { Message } from "./../models/message.model";
-import { ThisReceiver } from "@angular/compiler";
 @Injectable({
 	providedIn: "root",
 })
 export class InboxStore {
+	private loggedIn: boolean = false;
 	private inboxSubject = new BehaviorSubject<Message[]>(DUMMY_MESSAGES);
 
 	inbox$: Observable<Message[]> = this.inboxSubject.asObservable();
 
-	constructor(private InboxService: InboxService) {}
+	constructor(
+		private AuthStore: AuthStore,
+		private InboxService: InboxService
+	) {}
 
 	init() {
 		console.log("Inbox Store Initialized");
-		this.getMessages();
+		this.AuthStore.loggedIn$.subscribe((loggedIn: boolean) => {
+			console.log("INBOX-STORE-INIT-SUBSCRIBER");
+			console.log(loggedIn);
+
+			this.loggedIn = loggedIn;
+
+			if (!loggedIn) {
+				this.inboxSubject.next(DUMMY_MESSAGES);
+				return;
+			}
+			this.getMessages();
+		});
 	}
 
 	getMessages() {
+		if (!this.AuthStore.localLoggedIn) {
+			return;
+		}
 		this.InboxService.getAllMessages().subscribe((res: any) => {
 			if (!res.complete) {
 				this.inboxSubject.next(DUMMY_MESSAGES);
 				return;
 			}
 
-			setTimeout(() => {
-				console.log("WILL EMIT ALL MESSAGES");
-				console.log(res.result.all);
-				this.inboxSubject.next(res.result.all);
-			}, 3000);
+			console.log("WILL EMIT ALL MESSAGES");
+			console.log(res.result.all);
+			this.inboxSubject.next(res.result.all);
 		});
 	}
 

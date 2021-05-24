@@ -1,17 +1,20 @@
 import { Component, OnInit } from "@angular/core";
 
+import { AuthStore } from "./../common/stores/auth-store.service";
+
 @Component({
 	selector: "app-login",
 	templateUrl: "./login.component.html",
 	styleUrls: ["./login.component.scss"],
 })
 export class LoginComponent implements OnInit {
-	constructor() {}
+	constructor(private AuthStore: AuthStore) {}
 
 	ngOnInit(): void {}
 
-	login(uName: string, pwd: string) {
+	login(username: string, password: string) {
 		console.log("Login");
-		console.log(uName, pwd);
+		console.log(username, password);
+		this.AuthStore.login({ username, password });
 	}
 }

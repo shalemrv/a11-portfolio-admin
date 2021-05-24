@@ -6,19 +6,25 @@ import { HttpClient } from "@angular/common/http";
 @Injectable({
 	providedIn: "root",
 })
-export class InboxService {
+export class AuthService {
 	constructor(private http: HttpClient) {}
 
-	getAllMessages() {
+	checkIfLoggedIn() {
 		return this.http.get(
-			`${environment.API_URL}/api/admin/manage.php?action=messages`
+			`${environment.API_URL}/api/admin/authenticate.php?action=check`
 		);
 	}
 
-	switchReadUnread(payload: any) {
+	login(payload: any) {
 		return this.http.post(
-			`${environment.API_URL}/api/admin/manage.php?action=messages`,
+			`${environment.API_URL}/api/admin/authenticate.php?action=login`,
 			payload
+		);
+	}
+
+	logout() {
+		return this.http.get(
+			`${environment.API_URL}/api/admin/authenticate.php?action=logout`
 		);
 	}
 }
