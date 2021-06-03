@@ -48,8 +48,10 @@ export class VisitorsListComponent implements OnChanges {
 	instantiateTableDataSource() {
 		this.visitorsListCount = this.vistorsList.length;
 		this.dataSource = new MatTableDataSource<Visitor>(this.vistorsList);
-		this.dataSource.paginator = this.paginator;
 		this.dataSource.sort = this.sort;
+		setTimeout(() => {
+			this.dataSource.paginator = this.paginator;
+		}, 500);
 	}
 
 	ngOnChanges() {

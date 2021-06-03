@@ -9,7 +9,8 @@
 			class="loginMenuBtn"
 			aria-label="userContainer"
 		>
-			<mat-icon>account_circle</mat-icon> &nbsp; Guest &nbsp;
+			<mat-icon>account_circle</mat-icon> &nbsp;
+			{{ AuthStore.localLoggedIn ? "Admin" : "Guest" }} &nbsp;
 		</button>
 		<mat-menu #menu="matMenu">
 			<button mat-menu-item (click)="triggerReload()">

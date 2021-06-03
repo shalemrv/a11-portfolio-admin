@@ -31,7 +31,6 @@ export class AppComponent implements OnInit {
 	}
 
 	reloadAllData() {
-		console.log("APP-COMPONENT-TS reloadAllData");
 		this.InboxStore.getMessages();
 		this.VisitorStore.getVisitorsData();
 	}

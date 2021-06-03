@@ -1,5 +1,11 @@
 <div class="tableContainer">
-	<h3 class="tableHeader">
+	<h3
+		class="tableHeader"
+		[ngClass]="{
+			unread: type == 'Unread',
+			read: type == 'Read'
+		}"
+	>
 		{{ type }} Messages ({{ messagesCount }})
 		<div *ngIf="!messagesCount">
 			<br />
@@ -11,7 +17,11 @@
 			<!-- ID Column -->
 			<ng-container matColumnDef="id">
 				<th mat-header-cell *matHeaderCellDef mat-sort-header>ID</th>
-				<td mat-cell *matCellDef="let mDetails">
+				<td
+					mat-cell
+					*matCellDef="let mDetails"
+					(click)="viewCompleteMessage(mDetails)"
+				>
 					{{ mDetails.id }}
 				</td>
 			</ng-container>
@@ -19,15 +29,22 @@
 			<!-- Time Column -->
 			<ng-container matColumnDef="dateTime">
 				<th mat-header-cell *matHeaderCellDef mat-sort-header>Time</th>
-				<td mat-cell *matCellDef="let mDetails">
+				<td
+					mat-cell
+					*matCellDef="let mDetails"
+					(click)="viewCompleteMessage(mDetails)"
+				>
 					{{ mDetails.dateTime | date: "dd MMM yyyy 'at' h:mm:ss a" }}
 				</td>
 			</ng-container>
 
 			<!-- Company Name Column -->
-			<ng-container matColumnDef="companyName">
+			<ng-container
+				matColumnDef="companyName"
+				(click)="viewCompleteMessage(mDetails)"
+			>
 				<th mat-header-cell *matHeaderCellDef mat-sort-header>
-					Address
+					Company
 				</th>
 				<td mat-cell *matCellDef="let mDetails">
 					{{ mDetails.companyName }}

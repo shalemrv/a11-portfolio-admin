@@ -20,6 +20,7 @@ import { MatSortModule } from "@angular/material/sort";
 import { MatFormFieldModule } from "@angular/material/form-field";
 import { MatInputModule } from "@angular/material/input";
 import { MatButtonModule } from "@angular/material/button";
+import { MatDialogModule } from "@angular/material/dialog";
 
 /** NGX IMPORTS */
 import { NgxChartsModule } from "@swimlane/ngx-charts";
@@ -38,6 +39,7 @@ import { VisitorsComponent } from "./visitors/visitors.component";
 import { InboxComponent } from "./inbox/inbox.component";
 import { MessagesListComponent } from "./messages-list/messages-list.component";
 import { LoginComponent } from "./login/login.component";
+import { ViewMessageDialogComponent } from "./view-message-dialog/view-message-dialog.component";
 
 @NgModule({
 	declarations: [
@@ -50,6 +52,7 @@ import { LoginComponent } from "./login/login.component";
 		InboxComponent,
 		MessagesListComponent,
 		LoginComponent,
+		ViewMessageDialogComponent,
 	],
 	imports: [
 		BrowserModule,
@@ -65,6 +68,7 @@ import { LoginComponent } from "./login/login.component";
 		MatFormFieldModule,
 		MatInputModule,
 		MatButtonModule,
+		MatDialogModule,
 		NgxChartsModule,
 		HttpClientModule,
 	],
@@ -80,5 +84,6 @@ import { LoginComponent } from "./login/login.component";
 	],
 	bootstrap: [AppComponent],
 	schemas: [CUSTOM_ELEMENTS_SCHEMA],
+	entryComponents: [ViewMessageDialogComponent],
 })
 export class AppModule {}

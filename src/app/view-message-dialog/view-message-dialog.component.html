@@ -1,0 +1,55 @@
+<!--<pre>{{ InboxService.selectedMessage | json }}</pre>-->
+
+<div class="message-details-container">
+	<div
+		class="title"
+		[ngClass]="{
+			unread: !InboxService.selectedMessage.mRead,
+			read: InboxService.selectedMessage.mRead
+		}"
+	>
+		{{ InboxService.selectedMessage.mRead ? "READ" : "UNREAD" }}
+	</div>
+	<div class="id-time-container half-black">
+		<h5 class="mt-1 value-big"># {{ InboxService.selectedMessage.id }}</h5>
+		<div>
+			<h5 class="mt-1 value-medium">
+				{{ InboxService.selectedMessage.dateTime | date }}
+				<h6 class="text-right value-small">
+					at
+					{{ InboxService.selectedMessage.dateTime | date: "h:mm a" }}
+				</h6>
+			</h5>
+		</div>
+	</div>
+	<div class="company-person-names">
+		<div>
+			<small class="label"> Company Name </small>
+			<h6 class="mt-1 value-medium">
+				{{ InboxService.selectedMessage.companyName }}
+			</h6>
+		</div>
+		<div>
+			<small class="label"> Name </small>
+			<h6 class="mt-1 value-medium">
+				{{ InboxService.selectedMessage.fullName }}
+			</h6>
+		</div>
+	</div>
+
+	<div class="full-message" style="background: rgba(0, 0, 0, 0.5)">
+		<small class="label"> Message </small>
+		<h6 class="mt-2 value-message">
+			{{ InboxService.selectedMessage.message }}
+		</h6>
+	</div>
+	<div
+		class="email-container text-center"
+		style="background: rgba(0, 0, 0, 0.5)"
+	>
+		<small class="label"> Email </small>
+		<h5 class="mt-2 value-medium">
+			{{ InboxService.selectedMessage.email }}
+		</h5>
+	</div>
+</div>
