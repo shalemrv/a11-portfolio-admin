@@ -29,7 +29,7 @@ export class MessagesListComponent implements OnChanges {
 	messagesCount!: number;
 	allMessages!: Message[];
 
-	displayedColumns: string[] = ["id", "dateTime", "companyName"];
+	displayedColumns: string[] = ["date", "companyName", "fullName", "time"];
 	messagesDataSource!: MatTableDataSource<Message>;
 
 	@ViewChild(MatSort) sort!: MatSort;
