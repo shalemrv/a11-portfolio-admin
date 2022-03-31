@@ -1,6 +1,6 @@
 import { Component, Output, OnInit, EventEmitter } from "@angular/core";
 
-import { AuthStore } from "./../common/stores/auth-store.service";
+import { AuthStore } from "../common/stores/auth.store";
 
 /**
  * @title Header Component

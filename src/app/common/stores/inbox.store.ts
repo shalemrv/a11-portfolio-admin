@@ -2,10 +2,10 @@ import { Injectable } from "@angular/core";
 import { BehaviorSubject, Observable } from "rxjs";
 import { map } from "rxjs/operators";
 
-import { InboxService } from "./../services/inbox/inbox.service";
-import { AuthStore } from "./auth-store.service";
+import { InboxService } from "../services/inbox/inbox.service";
+import { AuthStore } from "./auth.store";
 
-import { Message } from "./../models/message.model";
+import { Message } from "../models/message.model";
 @Injectable({
 	providedIn: "root",
 })

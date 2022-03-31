@@ -2,7 +2,7 @@ import { Component, OnInit } from "@angular/core";
 
 import { Observable } from "rxjs";
 
-import { InboxStore } from "./../common/stores/inbox-store.service";
+import { InboxStore } from "../common/stores/inbox.store";
 
 import { Message } from "./../common/models/message.model";
 

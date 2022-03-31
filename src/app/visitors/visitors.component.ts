@@ -1,6 +1,6 @@
 import { Component, OnInit } from "@angular/core";
 
-import { VisitorStore } from "./../common/stores/visitor-store.service";
+import { VisitorStore } from "../common/stores/visitor.store";
 
 import { Visitor } from "./../common/models/visitor.model";
 import { Chart } from "./../common/models/chart.model";

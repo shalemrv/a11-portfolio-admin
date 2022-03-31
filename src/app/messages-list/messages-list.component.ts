@@ -11,7 +11,7 @@ import { MatSort } from "@angular/material/sort";
 import { MatTableDataSource } from "@angular/material/table";
 import { MatDialog, MatDialogConfig } from "@angular/material/dialog";
 
-import { InboxStore } from "./../common/stores/inbox-store.service";
+import { InboxStore } from "../common/stores/inbox.store";
 import { InboxService } from "./../common/services/inbox/inbox.service";
 
 import { Message } from "./../common/models/message.model";

@@ -10,7 +10,7 @@ import { MatPaginator } from "@angular/material/paginator";
 import { MatSort } from "@angular/material/sort";
 import { MatTableDataSource } from "@angular/material/table";
 
-import { AuthStore } from "./../common/stores/auth-store.service";
+import { AuthStore } from "../common/stores/auth.store";
 
 import { Visitor } from "./../common/models/visitor.model";
 

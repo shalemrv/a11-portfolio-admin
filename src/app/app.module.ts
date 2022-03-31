@@ -4,9 +4,9 @@ import { BrowserModule } from "@angular/platform-browser";
 import { FormsModule } from "@angular/forms";
 import { HttpClientModule, HTTP_INTERCEPTORS } from "@angular/common/http";
 
-import { AuthStore } from "./common/stores/auth-store.service";
-import { InboxStore } from "./common/stores/inbox-store.service";
-import { VisitorStore } from "./common/stores/visitor-store.service";
+import { AuthStore } from "./common/stores/auth.store";
+import { InboxStore } from "./common/stores/inbox.store";
+import { VisitorStore } from "./common/stores/visitor.store";
 
 import { AppRoutingModule } from "./app-routing.module";
 

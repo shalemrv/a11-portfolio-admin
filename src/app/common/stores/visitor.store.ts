@@ -4,8 +4,8 @@ import { filter, map, tap } from "rxjs/operators";
 
 import { VisitorService } from "../services/visitors/visitor.service";
 
-import { Chart } from "./../models/chart.model";
-import { Visitor } from "./../models/visitor.model";
+import { Chart } from "../models/chart.model";
+import { Visitor } from "../models/visitor.model";
 import { ThisReceiver } from "@angular/compiler";
 @Injectable({
 	providedIn: "root",
