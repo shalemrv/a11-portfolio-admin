@@ -32,9 +32,6 @@ export class VisitorStore {
 				return;
 			}
 
-			console.log("WILL EMIT ALL CHART");
-			console.log(res.result);
-
 			let chartData = res.result.chart;
 			let visitorsList = res.result.list;
 

@@ -1,4 +1,5 @@
 import { Injectable } from "@angular/core";
+import { Router } from "@angular/router";
 import { BehaviorSubject, Observable } from "rxjs";
 
 import { AuthService } from "../services/auth/auth.service";
@@ -12,7 +13,7 @@ export class AuthStore {
 	localLoggedIn: boolean = false;
 	loggedIn$: Observable<boolean> = this.loginSubject.asObservable();
 
-	constructor(private AuthService: AuthService) {}
+	constructor(private router: Router, private AuthService: AuthService) {}
 
 	init() {
 		console.log("Visitors Store Initialized");
@@ -48,6 +49,8 @@ export class AuthStore {
 
 			this.loginSubject.next(true);
 			this.localLoggedIn = true;
+
+			this.router.navigateByUrl("/visitors");
 		});
 	}
 
@@ -64,6 +67,8 @@ export class AuthStore {
 
 			this.loginSubject.next(false);
 			this.localLoggedIn = false;
+
+			this.router.navigateByUrl("/visitors");
 		});
 	}
 }

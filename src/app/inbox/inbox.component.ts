@@ -13,25 +13,23 @@ import { Message } from "./../common/models/message.model";
 	providers: [InboxStore],
 })
 export class InboxComponent implements OnInit {
-	//readMessages!: Message[];
-	//unreadMessages!: Message[];
-
-	readMessages$!: Observable<Message[]>;
-	unreadMessages$!: Observable<Message[]>;
+	readMessages!: Message[];
+	unreadMessages!: Message[];
 
 	constructor(private InboxStore: InboxStore) {
-		//this.InboxStore.inbox$.subscribe((messagesList: Message[]) => {
-		//	console.log("this.InboxStore.inbox$.subscribe");
-		//	console.log(messagesList);
-		//	this.unreadMessages = messagesList.filter((msg) => !msg.mRead);
-		//	this.readMessages = messagesList.filter((msg) => msg.mRead);
-		//});
-		this.readMessages$ = this.InboxStore.getReadMessages();
-		this.unreadMessages$ = this.InboxStore.getUnreadMessages();
+		// this.readMessages$ = this.InboxStore.getReadMessages();
+		// this.unreadMessages$ = this.InboxStore.getUnreadMessages();
 	}
 
 	ngOnInit() {
 		this.reloadMessages();
+
+		this.InboxStore.inbox$.subscribe((inbox: Message[]) => {
+			console.log("this.InboxStore.inbox$.subscribe");
+			console.log(inbox);
+			this.readMessages = this.InboxStore.getReadMessages(inbox);
+			this.unreadMessages = this.InboxStore.getUnreadMessages(inbox);
+		});
 	}
 
 	reloadMessages() {

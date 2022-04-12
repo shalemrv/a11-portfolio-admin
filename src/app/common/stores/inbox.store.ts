@@ -28,20 +28,19 @@ export class InboxStore {
 
 			this.loggedIn = loggedIn;
 
-			if (!loggedIn) {
-				this.inboxSubject.next(DUMMY_MESSAGES);
-				return;
-			}
 			this.getMessages();
 		});
 	}
 
 	getMessages() {
 		if (!this.AuthStore.localLoggedIn) {
+			console.log("INBOX-STORE-INIT-SUBSCRIBER");
+			this.inboxSubject.next(DUMMY_MESSAGES);
 			return;
 		}
+
 		this.InboxService.getAllMessages().subscribe((res: any) => {
-			if (!res.complete) {
+			if (!res?.complete) {
 				this.inboxSubject.next(DUMMY_MESSAGES);
 				return;
 			}
@@ -52,20 +51,16 @@ export class InboxStore {
 		});
 	}
 
-	getReadMessages() {
-		return this.filterByReadStatus(true);
+	getReadMessages(inbox: Message[]) {
+		return this.filterByReadStatus(inbox, true);
 	}
 
-	getUnreadMessages() {
-		return this.filterByReadStatus(false);
+	getUnreadMessages(inbox: Message[]) {
+		return this.filterByReadStatus(inbox, false);
 	}
 
-	filterByReadStatus(readStatus: boolean) {
-		return this.inbox$.pipe(
-			map((messagesList) =>
-				messagesList.filter((msg) => msg.mRead == readStatus)
-			)
-		);
+	filterByReadStatus(messagesList: Message[], readStatus: boolean) {
+		return messagesList.filter((msg) => msg.mRead == readStatus);
 	}
 }
 

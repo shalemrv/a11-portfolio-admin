@@ -5,11 +5,12 @@
 				<mat-icon>supervised_user_circle</mat-icon>
 			</span>
 			<span class="label">
+				<span> Visitors </span>
 				<span>
-					Visitors
-				</span>
-				<span>
-					<span matBadgeColor="primary" matBadge="34"></span>
+					<span
+						matBadgeColor="primary"
+						matBadge="{{ visitorsCount }}"
+					></span>
 				</span>
 			</span>
 			<!--<span matBadgeColor="primary" matBadge="34">Visitors &nbsp;&nbsp;&nbsp;</span>-->
@@ -18,9 +19,7 @@
 			<span class="icon">
 				<mat-icon>speaker_notes</mat-icon>
 			</span>
-			<span class="label">
-				Messages
-			</span>
+			<span class="label"> Messages </span>
 		</li>
 	</ul>
 </div>
